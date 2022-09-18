@@ -1,0 +1,14 @@
+.screen{
+    width: auto;
+    height: 50px;
+    margin-top: 0;
+    margin-bottom: 35px;
+}
+
+.screen p{
+    height: 100%;
+    text-align: right;
+    font-size: 2rem;
+    margin-top: -2px;
+    margin-bottom: 0;
+}

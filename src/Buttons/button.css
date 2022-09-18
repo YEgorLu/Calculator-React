@@ -1,0 +1,16 @@
+.button{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.button:hover{
+    filter: brightness(120%);
+}
+
+.button:active{
+    filter: brightness(90%);
+}
