@@ -1,12 +1,11 @@
 import "./button.css"
 
-export function BackSpaceButton(props) {
+export function BackSpaceButton({setIsFraction, screenContent, setScreenContent,...props}) {
   const backSpaceClick = () => {
-    const screenText = props.screenContent;
-    if (screenText[-1] === '.')
-      props.setState({isFraction: false});
-    const afterDelete = screenText.substring(0, screenText.length - 1);
-    props.setState(afterDelete.length === 0 ? {screenContent: '0'} : {screenContent: afterDelete});
+    if (screenContent[-1] === '.')
+      setIsFraction(false);
+    const afterDelete = screenContent.substring(0, screenContent.length - 1);
+    setScreenContent(afterDelete.length === 0 ? '0' : afterDelete);
   }
 
   const style = {

@@ -1,15 +1,15 @@
-import './output.css'
+import './styles/output.css'
 
 export function Output(props) {
   return (
     <div className="screen">
-      <ScreenText content={props.content}/>
+      <ScreenText>{props.children}</ScreenText>
     </div>
   );
 }
 
 function ScreenText(props) {
   return (
-    <p>{props.content}</p>
+    <p>{props.children}</p>
   )
 }

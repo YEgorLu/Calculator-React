@@ -1,17 +1,15 @@
 import operations from "../operations.mjs";
 import "./button.css"
 
-export function ResultButton(props){
+export function ResultButton({lastNumber, screenContent,
+                               operation, setScreenContent,
+                               setLastNumber,...props}){
   const resultClick = () => {
-    let lastNumber = props.lastNumber;
     if(lastNumber){
-      const currentNumber = +props.screenContent;
-      lastNumber = operations[props.operation](lastNumber, currentNumber);
-      props.setState({
-        screenContent: lastNumber.toString(),
-        lastNumber: lastNumber,
-        currentNumber: currentNumber
-      });
+      const currentNumber = +screenContent;
+      const newLastNumber = operations[operation](lastNumber, currentNumber);
+      setScreenContent(newLastNumber.toString());
+      setLastNumber(newLastNumber);
     }
   }
 

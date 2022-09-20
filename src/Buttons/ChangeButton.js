@@ -1,10 +1,8 @@
 import "./button.css"
 
-export function ChangeButton(props){
+export function ChangeButton({setScreenContent, screenContent, ...props}){
   const changeClick = () =>{
-    props.setState({
-      screenContent: -props.screenContent
-    })
+    setScreenContent(-screenContent);
   }
 
   const style = {

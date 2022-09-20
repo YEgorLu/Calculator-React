@@ -1,14 +1,13 @@
 import "./button.css"
 
-export function FractionButton(props){
+export function FractionButton({screenContent, setIsFraction, setScreenContent, isFraction, ...props}) {
   const fractionClick = event => {
-    if(!props.isFraction){
-      props.setState({
-        isFraction: true,
-        screenContent: props.screenContent + event.target.textContent
-      })
+    if (!isFraction) {
+      setIsFraction(true);
+      setScreenContent(screenContent + event.target.textContent);
     }
   }
+
 
   const style = {
     //backgroundColor: "orange"

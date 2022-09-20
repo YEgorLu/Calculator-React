@@ -1,16 +1,13 @@
 import "./button.css"
 
-export function OperationButton (props){
-  const content = props.content;
-  const className = props.className || "";
-
+export function OperationButton ({setOperation, setScreenContent,
+                                   setLastNumber, screenContent,
+                                   children, className="", ...props}){
   const operationClick = event => {
     let oper = event.target.textContent;
-    props.setState({
-      operation: oper,
-      lastNumber: +props.screenContent,
-      screenContent: oper
-    })
+    setOperation(oper);
+    setLastNumber(+screenContent);
+    setScreenContent(oper);
   }
 
   const style = {
@@ -18,6 +15,6 @@ export function OperationButton (props){
   }
 
   return (
-    <button style={style} className={`button ${className}`} onClick={operationClick}>{content}</button>
+    <button style={style} className={`button ${className}`} onClick={operationClick}>{children}</button>
   )
 }

@@ -1,26 +1,20 @@
 import "./button.css"
 
-export function NumberButton(props){
+export function NumberButton({screenContent, setScreenContent, setOperation, children, className="", ...props}){
   const numberClick = event => {
     const pressedText = event.target.textContent;
-    const screenText = props.screenContent;
+    const screenText = screenContent;
     if (screenText === "0")
-      props.setState({
-        screenContent: pressedText
-      });
+      setScreenContent(pressedText);
     else if (Number.isNaN(+pressedText) || Number.isNaN(+screenText)) {
-      props.setState({
-        screenContent: pressedText,
-        operation: screenText
-      });
+      setScreenContent(pressedText);
+      setOperation(screenText);
     } else {
-      props.setState({
-        screenContent: screenText + pressedText
-      })
+      setScreenContent(screenText + pressedText)
     }
   }
 
   return(
-    <button className={`button ${props.className || ""}`} onClick={numberClick}>{props.content}</button>
+    <button className={`button ${className}`} onClick={numberClick}>{children}</button>
   )
 }

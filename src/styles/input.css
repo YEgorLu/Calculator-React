@@ -1,0 +1,6 @@
+.line{
+    height: 60px;
+    display: grid;
+    grid-template-areas:
+    "first second third fourth";
+}
